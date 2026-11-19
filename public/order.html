@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order confirmation — FailForward Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">FailForward Store</a>
+    <nav>
+      <a href="/">Products</a>
+      <a href="/login.html">Account</a>
+      <a href="/kane">Kane dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Thank you for your order</h1>
+    <p id="loading">Loading your order…</p>
+
+    <div id="order-details" hidden>
+      <p>Your order id is:</p>
+      <p class="order-id" id="order-id"></p>
+      <div id="order-lines"></div>
+      <p><strong>Total: <span id="order-total"></span></strong></p>
+      <p id="order-meta"></p>
+      <p><a class="button" href="/">Continue shopping</a></p>
+    </div>
+
+    <div id="order-missing" class="notice error" hidden>
+      <p>We could not find that order. Check the order id and try again, or <a href="/">return to the store</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site">
+    <p>FailForward — a Kane CLI Hackathon entry.</p>
+  </footer>
+
+  <script src="/order.js"></script>
+</body>
+</html>
