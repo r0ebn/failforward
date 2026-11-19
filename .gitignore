@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Generated Kane reports (regenerated on every loop run)
+kane-report.json
+kane-failure.md
+kane/runs.jsonl
+
+# Kane CLI local state (sessions, evidence packs, variables)
+.testmuai/
+
+# OS files
+.DS_Store
+Thumbs.db
