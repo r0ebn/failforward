@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account — FailForward Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">FailForward Store</a>
+    <nav>
+      <a href="/">Products</a>
+      <a href="/login.html">Account</a>
+      <a href="/kane">Kane dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Account</h1>
+
+    <div id="welcome" class="notice" hidden>
+      <p id="welcome-text"></p>
+      <button id="logout-button" class="secondary" type="button">Log out</button>
+    </div>
+
+    <div id="auth-forms">
+      <div class="tabs">
+        <button id="tab-signin" class="active" type="button">Sign in</button>
+        <button id="tab-register" type="button">Create account</button>
+      </div>
+
+      <form id="signin-form" class="stack">
+        <label>Email
+          <input id="signin-email" name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>Password
+          <input id="signin-password" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button id="signin-button" type="submit">Sign in</button>
+        <p id="signin-error" class="notice error" hidden></p>
+      </form>
+
+      <form id="register-form" class="stack" hidden>
+        <label>Name
+          <input id="register-name" name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input id="register-email" name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>Password
+          <input id="register-password" name="password" type="password" autocomplete="new-password" required>
+        </label>
+        <button id="register-button" type="submit">Create account</button>
+        <p id="register-error" class="notice error" hidden></p>
+      </form>
+
+      <div class="notice">
+        <p><strong>Demo account:</strong> demo@failforward.dev / demo1234</p>
+        <p>Accounts live in server memory only and reset when the server restarts.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <p>FailForward — a Kane CLI Hackathon entry.</p>
+  </footer>
+
+  <script src="/auth.js"></script>
+</body>
+</html>
