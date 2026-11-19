@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout — FailForward Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">FailForward Store</a>
+    <nav>
+      <a href="/">Products</a>
+      <a href="/login.html">Account</a>
+      <a href="/kane">Kane dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Checkout</h1>
+
+    <div id="empty-cart" class="notice" hidden>
+      <p>Your cart is empty. <a href="/">Back to the store</a> and add a product first.</p>
+    </div>
+
+    <div id="checkout-main">
+      <section aria-label="Order summary">
+        <h2>Order summary</h2>
+        <div id="summary-lines"></div>
+        <p><strong>Total: <span id="summary-total">$0.00</span></strong></p>
+      </section>
+
+      <form id="checkout-form" class="stack">
+        <label>Full name
+          <input id="field-name" name="name" type="text" autocomplete="name" required>
+        </label>
+        <label>Email
+          <input id="field-email" name="email" type="email" autocomplete="email" required>
+        </label>
+        <label>Shipping address
+          <textarea id="field-address" name="address" rows="2" autocomplete="street-address" required></textarea>
+        </label>
+        <label>Card number
+          <input id="field-card" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" required>
+        </label>
+        <button id="place-order-button" type="submit">Place order</button>
+        <p id="checkout-error" class="notice error" hidden></p>
+      </form>
+
+      <div class="notice">
+        <p>Demo checkout — no real payment is processed. Use any card number, for example 4242 4242 4242 4242.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site">
+    <p>FailForward — a Kane CLI Hackathon entry.</p>
+  </footer>
+
+  <script type="module" src="/checkout.js"></script>
+</body>
+</html>
