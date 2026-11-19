@@ -1,0 +1,175 @@
+/* FailForward demo store — plain CSS, no external assets. */
+
+:root {
+  --ink: #1c2430;
+  --muted: #5d6b7d;
+  --line: #e2e8f0;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --accent: #0f766e;
+  --accent-dark: #0b5e57;
+  --danger: #b91c1c;
+  --pass: #15803d;
+  --fail: #b91c1c;
+  --warn-bg: #fef3c7;
+  --warn-ink: #92400e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+
+header.site {
+  background: var(--ink);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+header.site a.brand {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+header.site nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+header.site nav a { color: #cbd5e1; text-decoration: none; }
+header.site nav a:hover { color: #fff; }
+header.site .spacer { flex: 1; }
+
+main { max-width: 1024px; margin: 0 auto; padding: 1.5rem; }
+
+.hero { margin-bottom: 1.5rem; }
+.hero h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+.hero p { margin: 0; color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card h2 { font-size: 1.05rem; margin: 0; }
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; flex: 1; }
+.card .price { font-weight: 700; font-size: 1.1rem; }
+
+button, .button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+button:hover, .button:hover { background: var(--accent-dark); }
+button.secondary, .button.secondary { background: #e2e8f0; color: var(--ink); }
+button.secondary:hover, .button.secondary:hover { background: #cbd5e1; }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+#cart-count {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.05rem 0.5rem;
+  font-size: 0.85rem;
+  margin-left: 0.25rem;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(380px, 92vw);
+  background: var(--card);
+  border-left: 1px solid var(--line);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+  padding: 1.25rem;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.cart-panel[hidden] { display: none; }
+.cart-panel h2 { margin-top: 0; }
+.cart-line { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+.cart-line .qty { display: flex; gap: 0.35rem; align-items: center; }
+.cart-line .qty button { padding: 0.15rem 0.55rem; }
+.cart-total { display: flex; justify-content: space-between; font-weight: 700; margin: 1rem 0; font-size: 1.1rem; }
+
+form.stack { display: flex; flex-direction: column; gap: 0.85rem; max-width: 480px; }
+form.stack label { font-weight: 600; font-size: 0.95rem; }
+form.stack input, form.stack textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.notice {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  background: var(--card);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+.notice.warn { border-left-color: #d97706; background: var(--warn-bg); color: var(--warn-ink); }
+.notice.error { border-left-color: var(--danger); color: var(--danger); }
+
+.tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.tabs button.active { background: var(--ink); }
+
+table.report { width: 100%; border-collapse: collapse; background: var(--card); }
+table.report th, table.report td { border: 1px solid var(--line); padding: 0.6rem; text-align: left; }
+table.report th { background: #f1f5f9; }
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.1rem 0.65rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.badge.pass { background: #dcfce7; color: var(--pass); }
+.badge.fail { background: #fee2e2; color: var(--fail); }
+.badge.idle { background: #e2e8f0; color: var(--muted); }
+
+.order-id { font-size: 1.6rem; font-weight: 800; letter-spacing: 0.03em; }
+
+footer.site {
+  max-width: 1024px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
