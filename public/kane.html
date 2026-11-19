@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kane dashboard — FailForward</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site">
+    <a class="brand" href="/">FailForward Store</a>
+    <nav>
+      <a href="/">Products</a>
+      <a href="/login.html">Account</a>
+      <a href="/kane">Kane dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Verified with Kane CLI</h1>
+    <p>Latest results from <code>scripts/kane-loop.mjs</code> — one Kane run per flow, in a real browser.</p>
+
+    <div id="bug-banner" class="notice warn" hidden>
+      <p><strong>Chaos toggle is ON (CHECKOUT_BUG=1).</strong> The checkout button currently does nothing. Expect the checkout flows to fail until the toggle is switched off.</p>
+    </div>
+
+    <div id="empty-state" class="notice" hidden>
+      <p><strong>No Kane runs yet.</strong> Start the store, then run the loop:</p>
+      <pre><code>npm start
+npm run kane</code></pre>
+      <p>Kane runs need a TestMu AI login (<code>kane-cli login</code>) and credits. See the README.</p>
+    </div>
+
+    <div id="report" hidden>
+      <p>
+        <span id="overall-badge" class="badge idle">—</span>
+        <span id="report-meta"></span>
+      </p>
+      <table class="report">
+        <thead>
+          <tr>
+            <th>Flow</th>
+            <th>Verdict</th>
+            <th>Exit code</th>
+            <th>Duration</th>
+            <th>Credits</th>
+            <th>Summary</th>
+            <th>Evidence</th>
+          </tr>
+        </thead>
+        <tbody id="report-rows"></tbody>
+      </table>
+      <p><button id="refresh-button" class="secondary" type="button">Refresh</button></p>
+    </div>
+  </main>
+
+  <footer class="site">
+    <p>FailForward — a Kane CLI Hackathon entry. Evidence links open the run in the KaneAI test manager.</p>
+  </footer>
+
+  <script src="/kane.js"></script>
+</body>
+</html>
